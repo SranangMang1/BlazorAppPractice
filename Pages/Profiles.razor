@@ -1,0 +1,49 @@
+﻿@page "/profiles"
+
+<PageTitle>Profiles</PageTitle>
+
+<h3>Profiles</h3>
+<div class="col-2">
+<div class="input-group">
+    <EditForm Model="SelectedSet" class="col-12">
+<InputText class="form-control" placeholder="Enter Name" id="Name" @bind-Value=DisplayNameInput />
+<InputText class="form-control" placeholder="Enter Email" id="Email" @bind-Value=EmailInput />
+
+<button class="btn btn-outline-secondary col-12" type="submit" @onclick=ShowProfiles>
+    Display Profiles
+        </button>
+    </EditForm>
+    </div>
+</div>
+
+@if(ProfileList != null){
+    <div class="card-group col-12">
+        @foreach(var item in ProfileList){
+     
+            <ProfileCard Name="@item.DisplayName" Email="@item.Email" />
+        }
+    </div>
+}
+
+@code {
+    private List<Profile> ProfileList =null!;
+    private string DisplayNameInput { get; set; } = null!;
+    private string EmailInput { get; set; } = null!;
+    private int SelectedSet { get; set; }
+
+    protected override async Task OnInitializedAsync(){
+        ProfileList = new List<Profile>();
+        SelectedSet = 1;
+    }
+
+    private async Task ShowProfiles(){
+
+        ProfileList.Add(new Profile(DisplayNameInput, EmailInput)
+            {
+
+                DisplayName = DisplayNameInput,
+                Email = EmailInput,
+            });
+    }
+
+    }

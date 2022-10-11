@@ -1,0 +1,21 @@
+﻿<div class="card text-center col-2">
+    <div class="card-header">@Name</div>
+    <img class="card-img-top" src="@Url()" alt="@Name" />
+<div class=" card-body">
+<div class="card-text">@Email</div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string? Name { get; set; }
+
+    [Parameter]
+    public string? Email { get; set; }
+
+    public string Url(){
+        return $"https://picsum.photos/seed/{Name}/200/?blur=2";
+    }
+
+}

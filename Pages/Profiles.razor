@@ -6,10 +6,10 @@
 <div class="col-2">
 <div class="input-group">
     <EditForm Model="SelectedSet" class="col-12">
-<InputText class="form-control" placeholder="Enter Name" id="Name" @bind-Value=DisplayNameInput />
-<InputText class="form-control" placeholder="Enter Email" id="Email" @bind-Value=EmailInput />
+<InputText class="form-control m-2" placeholder="Enter Name" id="Name" @bind-Value=DisplayNameInput />
+<InputText class="form-control m-2" typeof="email" placeholder="Enter Email" id="Email" @bind-Value=EmailInput />
 
-<button class="btn btn-outline-secondary col-12" type="submit" @onclick=ShowProfiles>
+<button class="btn m-2 btn-outline-secondary col-12" type="submit" @onclick=ShowProfiles>
     Display Profiles
         </button>
     </EditForm>
